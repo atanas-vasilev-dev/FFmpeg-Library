@@ -5,7 +5,7 @@ namespace FFMpegLib\FileFinder;
 use Symfony\Component\Finder\Finder;
 
 class FileFinder {
-	protected $finder;
+	protected Finder $finder;
 
 	protected function __construct() {
 		$this->finder = new Finder();
@@ -15,16 +15,10 @@ class FileFinder {
 		return new static();
 	}
 
-	/**
-	 * Find a file defering if it is a absolute path or not
-	 * @param $fileName
-	 * @return absolutePathToFile
-	 */
 	public static function findFile($fileName = null, $directoryToSearch = __DIR__) {
 		if (!$fileName || !$directoryToSearch) {
 			return false;
 		}
-
 
 		if (static::isAbsolute($fileName)) {
 			return $fileName;
@@ -41,11 +35,6 @@ class FileFinder {
 		return $fileAbsolutePath;
 	}
 
-	/**
-	 * Determine if the fileName is absolute or not
-	 * @param $fileName
-	 * @return boolean
-	 */
 	public static function isAbsolute($fileName = null) {
 		if (!$fileName) {
 			return false;

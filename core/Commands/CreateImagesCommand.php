@@ -7,6 +7,7 @@ use FFMpegLib\Traits\Validation;
 use FFMpegLib\Inspectors\VideoInspector;
 use FFMpegLib\Util\Time;
 use FFMpegLib\Commands\Exceptions\VideoLengthError;
+use FFMpegLib\Initializer;
 
 class CreateImagesCommand implements CommandInterface
 {
